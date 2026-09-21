@@ -37,70 +37,78 @@
     }
 
     video {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
     }
 
     /*
-      Area iklan overlay.
-      Hanya satu zone yang aktif pada satu waktu.
+      Semua iklan berada di titik tengah video.
+      Z-index berbeda supaya semuanya tetap aktif.
     */
+
     .ad-overlay {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
 
-      display: none;
+      display: flex;
       justify-content: center;
       align-items: center;
 
-      z-index: 20;
-      max-width: 95vw;
-      max-height: 80vh;
-      overflow: hidden;
+      pointer-events: auto;
     }
 
-    .ad-overlay.active {
-      display: flex;
-    }
-
-    .ad-300x50 {
+    /* 300 x 50 */
+    .ad1 {
       width: 300px;
       height: 50px;
+      transform: translate(-50%, -50%);
+      z-index: 20;
     }
 
-    .ad-308x286 {
+    /* 308 x 286 */
+    .ad2 {
       width: 308px;
       height: 286px;
+      transform: translate(-50%, -50%);
+      z-index: 21;
     }
 
-    .ad-125x125 {
+    /* 125 x 125 */
+    .ad3 {
       width: 125px;
       height: 125px;
+      transform: translate(-50%, -50%);
+      z-index: 22;
     }
 
-    .ad-250x250 {
-      width: 250px;
-      height: 250px;
-    }
-
-    .native-ad {
+    /* Native Interstitial */
+    .ad4 {
       width: 100%;
       max-width: 320px;
+      transform: translate(-50%, -50%);
+      z-index: 23;
+    }
+
+    /* 250 x 250 */
+    .ad5 {
+      width: 250px;
+      height: 250px;
+      transform: translate(-50%, -50%);
+      z-index: 24;
     }
 
     @media (max-width: 640px) {
-      .ad-308x286 {
-        width: 308px;
+
+      .ad2 {
         max-width: 90vw;
       }
 
-      .ad-250x250 {
-        width: 250px;
+      .ad5 {
         max-width: 80vw;
       }
+
     }
   </style>
 
@@ -120,26 +128,23 @@
 
     <!-- VIDEO -->
     <video
-      id="video"
       controls
       playsinline
       preload="metadata">
 
       <source
-        src="https://cdn2.videy.co/ZqI9bBP11.mp4"
+        src="https://cdn2.videy.co/hgVD4zy81.mp4"
         type="video/mp4">
 
       Browser kamu tidak mendukung video.
     </video>
 
 
-    <!-- ========================= -->
-    <!-- IKLAN 1 - 1127281 -->
-    <!-- ========================= -->
+    <!-- ================================= -->
+    <!-- JUICYADS 1127281 - 300x50 -->
+    <!-- ================================= -->
 
-    <div
-      id="ad1"
-      class="ad-overlay ad-300x50">
+    <div class="ad-overlay ad1">
 
       <ins
         id="1127281"
@@ -151,22 +156,19 @@
         type="text/javascript"
         data-cfasync="false"
         async>
-
         (adsbyjuicy = window.adsbyjuicy || []).push({
           'adzone': 1127281
         });
-
       </script>
+
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IKLAN 2 - 1127282 -->
-    <!-- ========================= -->
+    <!-- ================================= -->
+    <!-- JUICYADS 1127282 - 308x286 -->
+    <!-- ================================= -->
 
-    <div
-      id="ad2"
-      class="ad-overlay ad-308x286">
+    <div class="ad-overlay ad2">
 
       <ins
         id="1127282"
@@ -178,22 +180,19 @@
         type="text/javascript"
         data-cfasync="false"
         async>
-
         (adsbyjuicy = window.adsbyjuicy || []).push({
           'adzone': 1127282
         });
-
       </script>
+
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IKLAN 3 - 1127284 -->
-    <!-- ========================= -->
+    <!-- ================================= -->
+    <!-- JUICYADS 1127284 - 125x125 -->
+    <!-- ================================= -->
 
-    <div
-      id="ad3"
-      class="ad-overlay ad-125x125">
+    <div class="ad-overlay ad3">
 
       <ins
         id="1127284"
@@ -205,22 +204,20 @@
         type="text/javascript"
         data-cfasync="false"
         async>
-
         (adsbyjuicy = window.adsbyjuicy || []).push({
           'adzone': 1127284
         });
-
       </script>
+
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IKLAN 4 - NATIVE 1127286 -->
-    <!-- ========================= -->
+    <!-- ================================= -->
+    <!-- JUICYADS NATIVE INTERSTITIAL -->
+    <!-- ZONE 1127286 -->
+    <!-- ================================= -->
 
-    <div
-      id="ad4"
-      class="ad-overlay native-ad">
+    <div class="ad-overlay ad4">
 
       <script
         type="text/javascript"
@@ -233,13 +230,11 @@
     </div>
 
 
-    <!-- ========================= -->
-    <!-- IKLAN 5 - 1127287 -->
-    <!-- ========================= -->
+    <!-- ================================= -->
+    <!-- JUICYADS 1127287 - 250x250 -->
+    <!-- ================================= -->
 
-    <div
-      id="ad5"
-      class="ad-overlay ad-250x250">
+    <div class="ad-overlay ad5">
 
       <ins
         id="1127287"
@@ -251,77 +246,14 @@
         type="text/javascript"
         data-cfasync="false"
         async>
-
         (adsbyjuicy = window.adsbyjuicy || []).push({
           'adzone': 1127287
         });
-
       </script>
+
     </div>
 
   </div>
-
-
-  <!-- ========================= -->
-  <!-- PERGANTIAN IKLAN -->
-  <!-- ========================= -->
-
-  <script>
-
-    const ads = [
-      document.getElementById("ad1"),
-      document.getElementById("ad2"),
-      document.getElementById("ad3"),
-      document.getElementById("ad4"),
-      document.getElementById("ad5")
-    ];
-
-    let currentAd = 0;
-
-    function showAd(index) {
-
-      ads.forEach(ad => {
-        ad.classList.remove("active");
-      });
-
-      if (ads[index]) {
-        ads[index].classList.add("active");
-      }
-    }
-
-    function nextAd() {
-
-      currentAd++;
-
-      if (currentAd >= ads.length) {
-        currentAd = 0;
-      }
-
-      showAd(currentAd);
-    }
-
-    /*
-      Iklan pertama muncul setelah 3 detik.
-    */
-
-    setTimeout(() => {
-
-      showAd(0);
-
-    }, 3000);
-
-
-    /*
-      Setiap 10 detik berganti ke zone berikutnya.
-    */
-
-    setInterval(() => {
-
-      nextAd();
-
-    }, 10000);
-
-  </script>
 
 </body>
 </html>
