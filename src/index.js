@@ -1,6 +1,6 @@
 export default {
   async fetch(request) {
-    const VIDEO_URL = "https://aceimg.com/upload/?f=jbZZzva5k.mp4";
+    const VIDEO_URL = "https://cdn2.videy.co/hgVD4zy81.mp4";
 
     return new Response(`<!DOCTYPE html>
 <html lang="id">
