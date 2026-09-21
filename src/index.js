@@ -1,6 +1,6 @@
 export default {
   async fetch(request) {
-    const VIDEO_URL = "https://aceimg.com/upload/?f=x86keXwV2.mp4";
+    const VIDEO_URL = "https://aceimg.com/upload/?f=jbZZzva5k.mp4";
 
     return new Response(`<!DOCTYPE html>
 <html lang="id">
@@ -8,8 +8,10 @@ export default {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- JuicyAds verification -->
   <meta name="juicyads-site-verification" content="0c2ef4163313b08e5965d2436a5760b0">
 
+  <!-- Hilangkan favicon/logo lama -->
   <link rel="icon" href="data:,">
 
   <title>Video</title>
@@ -42,14 +44,12 @@ export default {
 </head>
 
 <body>
-
   <div class="video-box">
     <video controls playsinline preload="metadata">
       <source src="${VIDEO_URL}" type="video/mp4">
       Browser kamu tidak mendukung video.
     </video>
   </div>
-
 </body>
 </html>`, {
       headers: {
